@@ -1,0 +1,2 @@
+module UsinfosHelper
+end

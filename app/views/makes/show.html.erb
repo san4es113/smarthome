@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @make.property %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @make.state %>
+</p>
+
+<p>
+  <strong>Gear:</strong>
+  <%= @make.gear_id %>
+</p>
+
+<p>
+  <strong>Update date:</strong>
+  <%= @make.update_date %>
+</p>
+
+<%= link_to 'Edit', edit_make_path(@make) %> |
+<%= link_to 'Back', makes_path %>

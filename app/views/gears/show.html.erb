@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @gear.title %>
+</p>
+
+<p>
+  <strong>Definitionkey:</strong>
+  <%= @gear.definitionkey %>
+</p>
+
+<p>
+  <strong>Usinfo:</strong>
+  <%= @gear.usinfo_id %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @gear.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @gear.longitude %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @gear.address %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gear.description %>
+</p>
+
+<%= link_to 'Edit', edit_gear_path(@gear) %> |
+<%= link_to 'Back', gears_path %>

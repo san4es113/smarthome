@@ -24,7 +24,7 @@ class UsinfosController < ApplicationController
   # POST /usinfos
   # POST /usinfos.json
   def create
-    @usinfo = Usinfo.new(usinfo_params)
+    @usinfo = current_user.usinfos.new(usinfo_params)
 
     respond_to do |format|
       if @usinfo.save

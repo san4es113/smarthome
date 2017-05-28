@@ -49,3 +49,5 @@ group :development do
 end
 
 gem 'devise'
+gem 'mqtt'
+gem 'sidekiq'

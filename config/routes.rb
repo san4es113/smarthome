@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :makes
-  resources :actions
   resources :gears
   resources :usinfos
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  require 'sidekiq/web'
+  mount Sidekiq::Web=>"/sidekiq"
   # You can have the root of your site routed with "root"
   root 'usinfos#index'
-
+  get 'grep' => 'makes#report'
+  get 'con' => 'makes#connect'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

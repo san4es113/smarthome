@@ -12,6 +12,26 @@ class MakesController < ApplicationController
   def show
   end
 
+  def report
+    ReportWorker.perform_async()
+    render text:"request to generate a report added to the queue"
+  end
+
+def connect
+    ReportWorker.connr()
+    render text:"request to generate a report added to the queue"
+  end 
+
+  def generate_report
+    sleep 30
+  end
+
+
+
+
+
+
+
   # GET /makes/new
   def new
     @make = Make.new

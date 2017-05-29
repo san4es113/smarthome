@@ -28,6 +28,7 @@ class MakesController < ApplicationController
       MQTT::Client.connect(conn_opts) do |c|
         # publish a message to the topic 'test'
         loop do
+          render text:"request to generate a report added to the queue"
           c.publish('test', 'Hello World')
           sleep 1
         end

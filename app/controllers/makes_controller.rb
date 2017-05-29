@@ -14,7 +14,8 @@ class MakesController < ApplicationController
 
   def report
      
-    uri = URI.parse ENV['CLOUDMQTT_URL'] || 'mqtt://localhost:1883'
+    uri = URI.parse "mqtt://naffemhc:cCcVQHxAImG6@m11.cloudmqtt.com:13355"
+ 
     conn_opts = {
       remote_host: uri.host,
       remote_port: uri.port,

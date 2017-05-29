@@ -29,6 +29,7 @@ MQTT::Client.connect(conn_opts) do |c|
   # publish a message to the topic 'test'
   loop do
     c.publish('test', 'Hello World')
+    @message="publicate"
     sleep 10
   end
 end
@@ -38,6 +39,7 @@ end
         # The block will be called when you messages arrive to the topic
         c.get('test') do |topic, message|
           puts "#{topic}: #{message}"
+          @message=kek
           @message=message
         end
       end

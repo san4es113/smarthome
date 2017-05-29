@@ -30,27 +30,9 @@ class MakesController < ApplicationController
       end
     end
 
-    task :mqtt_subscribe do
 
-      # Create a hash with the connection parameters from the URL
-      uri = URI.parse ENV['CLOUDMQTT_URL'] || '{MQTT URL設定}'
-      conn_opts = {
-        remote_host: uri.host,
-        remote_port: uri.port,
-        username: uri.user,
-        password: uri.password,
-      }
 
-      MQTT::Client.connect(conn_opts) do |c|
-        # The block will be called when you messages arrive to the topic
-        loop do
-          c.get('test') do |topic, message|
-            puts "#{topic}: #{message}"
-          end
-        end
-      end
 
-end
 
 
 

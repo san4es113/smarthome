@@ -21,33 +21,36 @@ class MakesController < ApplicationController
         username: uri.user,
         password: uri.password,
     }
+threads=[]
 
- Thread.new do
+ threads<<Thread.new do
   render text:"request to generate a report added to the queue"
-  @message='sdadsad'
+
 end
-Thread.new do
+threads<<Thread.new do
 MQTT::Client.connect(conn_opts) do |c|
   # publish a message to the topic 'test'
   loop do
     c.publish('test', 'Hello World')
-   @message.p="ss"
+
     sleep 10
   end
 end
 end
-    Thread.new do
+  threads<<  Thread.new do
       MQTT::Client.connect(conn_opts) do |c|
         # The block will be called when you messages arrive to the topic
         c.get('test') do |topic, message|
           puts "#{topic}: #{message}"
-          @message.f="ss"
+ Thread.current[:output]='echo hi'
         end
       end
     end
-    render json:@message
+threads.each do |t|
+  t.join
+  puts t[:output]
   end
-
+end
 def connect
     ReportWorker.connr()
     render text:"request to generate a report added to the queue"

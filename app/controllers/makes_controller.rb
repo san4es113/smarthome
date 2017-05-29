@@ -22,7 +22,7 @@ class MakesController < ApplicationController
       password: uri.password,
     }
 
-
+   Thread.new do
       MQTT::Client.connect(conn_opts) do |c|
         # The block will be called when you messages arrive to the topic
         c.get('test') do |topic, message|
@@ -30,7 +30,7 @@ class MakesController < ApplicationController
           
         end
       end
-   
+    end
 
     Thread.new do
       MQTT::Client.connect(conn_opts) do |c|

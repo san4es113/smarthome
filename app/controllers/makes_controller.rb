@@ -31,7 +31,7 @@ MQTT::Client.connect(conn_opts) do |c|
   # publish a message to the topic 'test'
   loop do
     c.publish('test', 'Hello World')
-    render text:"request to generate a report added to the queue"
+   @message.p="ss"
     sleep 10
   end
 end
@@ -41,10 +41,11 @@ end
         # The block will be called when you messages arrive to the topic
         c.get('test') do |topic, message|
           puts "#{topic}: #{message}"
-          render text:"request to generate a report added to the queue"
+          @message.f="ss"
         end
       end
     end
+    render json:@message
   end
 
 def connect

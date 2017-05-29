@@ -26,6 +26,8 @@ class MakesController < ApplicationController
         # The block will be called when you messages arrive to the topic
         c.get('test') do |topic, message|
           puts "#{topic}: #{message}"
+          @message=message
+          sleep 5
         end
       end
     end

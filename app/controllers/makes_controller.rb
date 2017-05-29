@@ -13,7 +13,7 @@ class MakesController < ApplicationController
   end
 
   def report
-     
+     @message
     uri = URI.parse "mqtt://naffemhc:cCcVQHxAImG6@m11.cloudmqtt.com:13355"
  
     conn_opts = {
@@ -27,8 +27,7 @@ class MakesController < ApplicationController
       MQTT::Client.connect(conn_opts) do |c|
         # The block will be called when you messages arrive to the topic
         c.get('test') do |topic, message|
-          puts "#{topic}: #{message}"
-          @make = Make.new
+          @message = "#{topic}: #{message}"
         end
       end
     end

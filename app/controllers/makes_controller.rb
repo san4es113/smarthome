@@ -13,7 +13,7 @@ class MakesController < ApplicationController
   end
 
   def report
-     threads = [] 
+     
     uri = URI.parse ENV['CLOUDMQTT_URL'] || 'mqtt://localhost:1883'
     conn_opts = {
       remote_host: uri.host,
@@ -22,15 +22,7 @@ class MakesController < ApplicationController
       password: uri.password,
     }
 
-   threads << Thread.new do
-      MQTT::Client.connect(conn_opts) do |c|
-        # The block will be called when you messages arrive to the topic
-        c.get('test') do |topic, message|
-          puts "#{topic}: #{message}"
-          Thread.current[:output] = "#{topic}: #{message}"
-        end
-      end
-    end
+  
 
     Thread.new do
       MQTT::Client.connect(conn_opts) do |c|
@@ -42,13 +34,7 @@ class MakesController < ApplicationController
       end
     end
 
-(1..5).each do |i|
-  threads << Thread.new { Thread.current[:output] = `echo Hi from thread ##{i}` }
-end
-threads.each do |t|
-  t.join
-  @message= t[:output]
-end
+
 
 
 

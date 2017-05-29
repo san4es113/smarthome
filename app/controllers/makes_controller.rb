@@ -46,7 +46,7 @@ threads = []
 end
 threads.each do |t|
   t.join
-  puts t[:output]
+  ender text: t[:output]
 end
 
 

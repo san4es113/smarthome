@@ -25,14 +25,14 @@ threads=[]
 
  threads<<Thread.new do
   render text:"request to generate a report added to the queue"
-
+Thread.current[:output]='echo hi'
 end
 threads<<Thread.new do
 MQTT::Client.connect(conn_opts) do |c|
   # publish a message to the topic 'test'
   loop do
     c.publish('test', 'Hello World')
-
+Thread.current[:output]='echo hi'
     sleep 10
   end
 end

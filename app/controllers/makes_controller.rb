@@ -27,7 +27,7 @@ class MakesController < ApplicationController
         # The block will be called when you messages arrive to the topic
         c.get('test') do |topic, message|
           puts "#{topic}: #{message}"
-          
+          @make = Make.new
         end
       end
     end
@@ -54,14 +54,6 @@ class MakesController < ApplicationController
 
 
 
-  def connect
-    ReportWorker.connr()
-    render text:"request to generate a report added to the queue"
-  end 
-
-  def generate_report
-    sleep 30
-  end
 
 
 

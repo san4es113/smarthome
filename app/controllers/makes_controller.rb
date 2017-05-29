@@ -40,7 +40,14 @@ class MakesController < ApplicationController
         end
       end
     end
-
+threads = []
+(1..5).each do |i|
+  threads << Thread.new { Thread.current[:output] = `echo Hi from thread ##{i}` }
+end
+threads.each do |t|
+  t.join
+  puts t[:output]
+end
 
 
 

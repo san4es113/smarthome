@@ -23,26 +23,23 @@ class MakesController < ApplicationController
     }
 
  
-      MQTT::Client.connect(conn_opts) do |c|
-        # The block will be called when you messages arrive to the topic
-        c.get('test') do |topic, message|
-          puts "#{topic}: #{message}"
-          @message="#{topic}: #{message}"
-          sleep 5
-        end
-      end
- 
-
-
-    Thread.new do
-      MQTT::Client.connect(conn_opts) do |c|
-        # publish a message to the topic 'test'
-        loop do
-          c.publish('test', 'Hello World')
-          sleep 1
-        end
-      end
+     Thread.new do
+  MQTT::Client.connect(conn_opts) do |c|
+    # The block will be called when you messages arrive to the topic
+    c.get('test') do |topic, message|
+      puts "#{topic}: #{message}"
+      @message="#{topic}: #{message}"
     end
+  end
+end
+
+MQTT::Client.connect(conn_opts) do |c|
+  # publish a message to the topic 'test'
+  loop do
+    c.publish('test', 'Hello World')
+    sleep 1
+  end
+end
   end
 
 def connect

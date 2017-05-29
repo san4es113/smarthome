@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d2da4c2-7833-486a-b128-a6c8b35b4c1f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/makes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/makes_controller.rb" />
-    </list>
+    <list default="true" id="6d2da4c2-7833-486a-b128-a6c8b35b4c1f" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -575,12 +572,12 @@
       <option name="presentableId" value="Default" />
       <updated>1495981353234</updated>
       <workItem from="1495981362932" duration="4074000" />
-      <workItem from="1496036273361" duration="225000" />
+      <workItem from="1496036273361" duration="455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4299000" />
+    <option name="totallyTimeSpent" value="4529000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1217" height="1036" extended-state="6" />

@@ -22,13 +22,20 @@ class MakesController < ApplicationController
       password: uri.password,
     }
 
-  
+
+      MQTT::Client.connect(conn_opts) do |c|
+        # The block will be called when you messages arrive to the topic
+        c.get('test') do |topic, message|
+          puts "#{topic}: #{message}"
+          
+        end
+      end
+   
 
     Thread.new do
       MQTT::Client.connect(conn_opts) do |c|
         # publish a message to the topic 'test'
         loop do
-          format.html { redirect_to @make, notice: 'Make was successfully updated.' }
           c.publish('test', 'Hello World')
           sleep 1
         end

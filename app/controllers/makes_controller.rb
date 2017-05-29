@@ -24,7 +24,7 @@ class MakesController < ApplicationController
 
  
 
-
+Thread.new do
 MQTT::Client.connect(conn_opts) do |c|
   # publish a message to the topic 'test'
   loop do
@@ -32,8 +32,8 @@ MQTT::Client.connect(conn_opts) do |c|
     sleep 1
   end
 end
-
-    Thread.new do
+end
+    
       MQTT::Client.connect(conn_opts) do |c|
         # The block will be called when you messages arrive to the topic
         c.get('test') do |topic, message|
@@ -42,7 +42,7 @@ end
         end
       end
     end
-  end
+  
 
 def connect
     ReportWorker.connr()

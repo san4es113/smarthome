@@ -22,8 +22,10 @@ class MakesController < ApplicationController
         password: uri.password,
     }
 
- 
-
+ Thread.new do
+  render text:"request to generate a report added to the queue"
+  @message='sdadsad'
+end
 Thread.new do
 MQTT::Client.connect(conn_opts) do |c|
   # publish a message to the topic 'test'

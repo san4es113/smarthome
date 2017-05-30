@@ -1,13 +1,18 @@
 .nav{
 	color:blue;
 }
-.table{
-	width: 100%;
-}
+
 
 #user{
   color:green;
 }
 #page-content-wrapper{
 	text-align: center;
+}
+#wrapper{
+cursor: pointer;
+
+}
+.table{
+	width: 20%;
 }

@@ -8,28 +8,28 @@
 <table class="table table-bordered">
   <thead>
     <tr >
-      <th class=".col-xs-1 .col-sm-2 .col-md-4 .col-lg-4">Назва</th>
-      <th class=".col-xs-1 .col-sm-2 .col-md-4 .col-lg-4">Ключ</th>
-      <th class=".col-xs-1 .col-sm-2 .col-md-4 .col-lg-4">Власник</th>
-      <th class=".col-xs-1 .col-sm-2 .col-md-4 .col-lg-4">Широта</th>
-      <th class=".col-xs-1 .col-sm-2 .col-md-4 .col-lg-4">Довгота</th>
-      <th class=".col-xs-1 .col-sm-2 .col-md-4 .col-lg-4">Місцезнаходження</th>
-      <th class=".col-xs-1 .col-sm-2 .col-md-4 .col-lg-4">Опис</th>
-      <th class=".col-xs-1 .col-sm-2 .col-md-4 .col-lg-4">Дії</th>
+      <th class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8">Назва</th>
+      <th class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8">Ключ</th>
+      <th class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8">Власник</th>
+      <th class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8">Широта</th>
+      <th class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8">Довгота</th>
+      <th class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8">Місцезнаходження</th>
+      <th class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8">Опис</th>
+      <th class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8">Дії</th>
     </tr>
   </thead>
 
   <tbody>
     <% @gears.each do |gear| %>
       <tr >
-        <td><%= gear.title %></td>
-        <td><%= gear.definitionkey %></td>
-        <td><%= gear.usinfo.user.email %></td>
-        <td><%= gear.latitude %></td>
-        <td><%= gear.longitude %></td>
-        <td><%= gear.address %></td>
-        <td><%= gear.description %>
-        <td><%= link_to 'Show', gear ,:class => "btn btn-info"%>
+        <td class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8"><%= gear.title %></td>
+        <td class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8"><%= gear.definitionkey %></td>
+        <td class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8"> <%= gear.usinfo.user.email %></td>
+        <td class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8"><%= gear.latitude %></td>
+        <td class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8"><%= gear.longitude %></td>
+        <td class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8"><%= gear.address %></td>
+        <td class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8"><%= gear.description %>
+        <td class=".col-xs-2 .col-sm-4 .col-md-6 .col-lg-8"><%= link_to 'Show', gear ,:class => "btn btn-info"%>
         <%= link_to 'Edit', edit_gear_path(gear) ,:class => "btn btn-warning"%>
         <%= link_to 'Destroy', gear, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%>
         <%= link_to 'Device State', makes_path(gear) ,:class => "btn btn-default"%>

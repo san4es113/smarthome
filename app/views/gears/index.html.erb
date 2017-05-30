@@ -4,21 +4,21 @@
 
 <table class="table table-bordered">
   <thead>
-    <tr>
-      <th>Назва</th>
-      <th>Ключ</th>
-      <th>Власник</th>
-      <th>Широта</th>
-      <th>Довгота</th>
-      <th>Місцезнаходження</th>
-      <th>Опис</th>
-      <th>Дії</th>
+    <tr >
+      <th class="col-md-3 col-md-push-3">Назва</th>
+      <th class="col-md-3 col-md-push-3">Ключ</th>
+      <th class="col-md-3 col-md-push-3">Власник</th>
+      <th class="col-md-3 col-md-push-3">Широта</th>
+      <th class="col-md-3 col-md-push-3">Довгота</th>
+      <th class="col-md-3 col-md-push-3">Місцезнаходження</th>
+      <th class="col-md-3 col-md-push-3">Опис</th>
+      <th class="col-md-3 col-md-push-3">Дії</th>
     </tr>
   </thead>
 
   <tbody>
     <% @gears.each do |gear| %>
-      <tr>
+      <tr >
         <td><%= gear.title %></td>
         <td><%= gear.definitionkey %></td>
         <td><%= gear.usinfo.user.email %></td>

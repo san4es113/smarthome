@@ -1,10 +1,21 @@
-
+.table li a{
+  display: block;
+  text-decoration: none;
+  color:#ddd;
+}
+.navbar{
+	margin:0px;
+}
+.menu{
+	color:white;
+}
 
 #user{
   color:green;
 }
 #page-content-wrapper{
 	text-align: center;
+	background-color: yellow;
 }
 #wrapper{
 background-color: yellow;

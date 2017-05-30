@@ -1,6 +1,7 @@
 class MakesController < ApplicationController
   before_action :set_make, only: [:show, :edit, :update, :destroy]
   @thr
+  @var=0
   # GET /makes
   # GET /makes.json
   def index
@@ -15,7 +16,10 @@ class MakesController < ApplicationController
   def report
      @message
     uri = URI.parse "mqtt://naffemhc:cCcVQHxAImG6@m11.cloudmqtt.com:13355"
- 
+
+
+
+
     conn_opts = {
       remote_host: uri.host,
       remote_port: uri.port,
@@ -26,9 +30,10 @@ class MakesController < ApplicationController
    Thread.new do
       client = MQTT::Client.connect('tcp://test.mosquitto.org:', 1883)
     end
-
+if(@var!=0)
     Thread.kill(@thr)
-
+    
+ @var=1
     @thr=Thread.new do
       
       @makes = Make.last

@@ -2,8 +2,11 @@
   display: block;
   color:white;
 }
+.table{
+	color:white;
+}
 .table tr td{
-  display: block;
+
   color:white;
 }
 .navbar{

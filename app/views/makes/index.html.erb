@@ -17,16 +17,17 @@
   <tbody>
 
     <% @makes.each do |make| %>
-    <% if make.gear_id.to_s == request.original_url[43]  %>
+    <%= make.gear_id.to_s   %>
+    <%= request.original_url[43] %>
       <tr>
         <td><%= make.property %></td>
         <td><%= make.state %></td>
         <td><%= make.update_date %></td>
-        <td><%= link_to 'Show', make , :class => v %>
+        <td><%= link_to 'Show', make , :class => "btn btn-info" %>
         <%= link_to 'Edit', edit_make_path(make) , :class => "btn btn-warning"%></td>
      
       </tr>
-     <% end %>
+  
     <% end %>
   </tbody>
 </table>

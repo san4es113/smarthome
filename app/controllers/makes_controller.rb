@@ -73,6 +73,19 @@ class MakesController < ApplicationController
   # POST /makes
   # POST /makes.json
   def create
+
+    @current_usinfo
+    @usinfo=Usinfo.all
+    @usinfo.each do |elt|
+      if(elt.user.email==current_user.email)
+        @current_usinfo=elt
+    end
+    end
+    @gear = @current_usinfo.gears.new(gear_params)
+
+
+
+    
     @make = current_gear.makes.new(make_params)
 
     respond_to do |format|

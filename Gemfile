@@ -51,3 +51,5 @@ end
 gem 'devise'
 gem 'mqtt'
 gem 'sidekiq'
+gem 'gmaps4rails'
+gem 'geocoder'

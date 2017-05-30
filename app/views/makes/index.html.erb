@@ -1,24 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Makes</h1>
+<h1>Current state</h1>
 
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
+    <th>Devise</th>
       <th>Property</th>
       <th>State</th>
-      <th>Gear</th>
+      
       <th>Update date</th>
-      <th colspan="3"></th>
+
     </tr>
   </thead>
 
   <tbody>
     <% @makes.each do |make| %>
       <tr>
+        <td><%= make.gear_id %></td>
         <td><%= make.property %></td>
         <td><%= make.state %></td>
-        <td><%= make.gear_id %></td>
         <td><%= make.update_date %></td>
         <td><%= link_to 'Show', make %></td>
         <td><%= link_to 'Edit', edit_make_path(make) %></td>

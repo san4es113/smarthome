@@ -24,7 +24,14 @@ class GearsController < ApplicationController
   # POST /gears
   # POST /gears.json
   def create
-    @gear = current_usinfo.gears.new(gear_params)
+    @current_usinfo
+    @usinfo=Usinfo.all
+    @usinfo.each do |elt|
+      if(elt.user.email==current_user.email)
+        @current_usinfo=elt
+    end
+    end
+    @gear = @current_usinfo.gears.new(gear_params)
 
     respond_to do |format|
       if @gear.save

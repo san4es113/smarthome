@@ -5,6 +5,11 @@ class MakesController < ApplicationController
   # GET /makes.json
   def index
     @makes = Make.all
+    begin
+      @gear = Gear.find(request.original_url[28])
+    rescue
+ 
+    end
   end
 
   # GET /makes/1
@@ -36,7 +41,7 @@ class MakesController < ApplicationController
       MQTT::Client.connect(conn_opts) do |c|
         # publish a message to the topic 'test'
         loop do
-          c.publish('test', 'Hello World')
+          c.publish('st2.r216_dev', 'set_temperature:18')
           sleep 1
         end
       end
@@ -74,11 +79,9 @@ class MakesController < ApplicationController
   # POST /makes.json
   def create
 
-   
+ 
 
-
-
-    @make = current_gear.makes.new(make_params)
+    @make = Make.new(make_params)
 
     respond_to do |format|
       if @make.save

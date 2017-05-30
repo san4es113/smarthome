@@ -5,35 +5,40 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-    <th>Devise</th>
+
       <th>Property</th>
       <th>State</th>
       
       <th>Update date</th>
-
+      <th>Actions</th>
     </tr>
   </thead>
 
   <tbody>
+
     <% @makes.each do |make| %>
+    <% if make.gear_id.to_s == request.original_url[28]  %>
       <tr>
-        <td><%= make.gear_id %></td>
         <td><%= make.property %></td>
         <td><%= make.state %></td>
         <td><%= make.update_date %></td>
-        <td><%= link_to 'Show', make %></td>
-        <td><%= link_to 'Edit', edit_make_path(make) %></td>
-        <td><%= link_to 'Destroy', make, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', make , :class => "btn btn-info" %>
+        <%= link_to 'Edit', edit_make_path(make) , :class => "btn btn-warning"%></td>
+     
       </tr>
+     <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-
-
+<%= link_to 'new', new_make_path %>
+<%= link_to 'edit', edit_make_path("1") %>
 <br>
 <%= link_to 'publish', grep_path %>
 <br>
-<%=  @message  %>
+<%=  p @message  %>
+<%= p @g %>
+<%=
+@url %>

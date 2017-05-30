@@ -1,7 +1,7 @@
 class MakesController < ApplicationController
   before_action :set_make, only: [:show, :edit, :update, :destroy]
   @thr
-  @var=0
+  
   # GET /makes
   # GET /makes.json
   def index
@@ -30,10 +30,10 @@ class MakesController < ApplicationController
    Thread.new do
       client = MQTT::Client.connect('tcp://test.mosquitto.org:', 1883)
     end
-if(@var!=0)
+if(@thr)
     Thread.kill(@thr)
   end
- @var=1
+
     @thr=Thread.new do
       
       @makes = Make.last

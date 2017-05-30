@@ -1,9 +1,9 @@
-.table tr th{
-
+.table li a{
+  display: block;
   color:white;
 }
-table tr td{
-
+.table tr td{
+  display: block;
   color:white;
 }
 .navbar{
@@ -19,12 +19,12 @@ table tr td{
 #page-content-wrapper{
 	text-align: center;
 background-color: #333333;
-	height: 200%;
+	height: 100%;
 	color:white;
 }
-.page{
-background-color: #333333;
-text-align: center;
+#page{
+background-color: #333333 ;
+color:white;
 }
 .table{
 	width: 20%;

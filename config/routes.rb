@@ -10,11 +10,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'usinfos#index'
   get 'grep' => 'makes#report'
-<<<<<<< HEAD
-get 'profile' => 'usinfos#profile'
-=======
 
->>>>>>> b3382de3a60779d8d2f3347773338cda0742e757
+get 'profile' => 'usinfos#profile'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

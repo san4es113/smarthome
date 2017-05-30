@@ -32,7 +32,7 @@ class MakesController < ApplicationController
     end
 
 
-   @Thread=Thread.new do
+   Thread.new do
     @makes = Make.last
       @temp = 'set_temperature:'+ @makes.state
       MQTT::Client.connect(conn_opts) do |c|
@@ -40,7 +40,7 @@ class MakesController < ApplicationController
           c.publish('st2.r216_dev',@temp )
       end
     end
-Thread.kill(@Thread)
+
 
   Thread.new do
       MQTT::Client.connect(conn_opts1) do |c|

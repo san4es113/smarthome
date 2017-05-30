@@ -5,12 +5,7 @@ class MakesController < ApplicationController
   # GET /makes.json
   def index
     @makes = Make.all
-    begin
-      @gear = Gear.find(request.original_url[43])
-    rescue
- 
-    end
-  end
+   end
 
   # GET /makes/1
   # GET /makes/1.json

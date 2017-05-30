@@ -22,14 +22,9 @@ class MakesController < ApplicationController
       username: uri.user,
       password: uri.password,
     }
-
+ 
    Thread.new do
-      MQTT::Client.connect(conn_opts) do |c|
-        # The block will be called when you messages arrive to the topic
-        c.get('test') do |topic, message|
-          @message = "#{topic}: #{message}"
-        end
-      end
+      client = MQTT::Client.connect('tcp://test.mosquitto.org:', 1883)
     end
 
     Thread.new do
@@ -42,7 +37,14 @@ class MakesController < ApplicationController
       end
     end
 
-
+  Thread.new do
+      MQTT::Client.connect(conn_opts1) do |c|
+        # The block will be called when you messages arrive to the topic
+        c.get('test') do |topic, message|
+          @message = "#{topic}: #{message}"
+        end
+      end
+    end
 
 
 

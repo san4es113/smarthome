@@ -1,7 +1,9 @@
 .nav{
 	color:blue;
 }
-
+.table{
+	width: 100%;
+}
 
 #user{
   color:green;

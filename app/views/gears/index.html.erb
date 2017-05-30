@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Gears</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Definitionkey</th>
+      <th>Usinfo</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gears.each do |gear| %>
+      <tr>
+        <td><%= gear.title %></td>
+        <td><%= gear.definitionkey %></td>
+        <td><%= gear.usinfo_id %></td>
+        <td><%= gear.latitude %></td>
+        <td><%= gear.longitude %></td>
+        <td><%= gear.address %></td>
+        <td><%= gear.description %></td>
+        <td><%= link_to 'Show', gear %></td>
+        <td><%= link_to 'Edit', edit_gear_path(gear) %></td>
+        <td><%= link_to 'Destroy', gear, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gear', new_gear_path %>

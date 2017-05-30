@@ -1,0 +1,15 @@
+
+<% if @myinfo %>
+<h3>
+	<div class="myinfo">name: <%= @myinfo.username %><div>
+	<br>
+	<div class="myinfo">email: <%= @myinfo.user.email %><div>
+	<br>
+	<div class="myinfo">birthday: <%= @myinfo.birthday %><div>
+	<br>
+</h3>
+
+<%= link_to 'Edit my profile', edit_usinfo_path(@myinfo),:class => "btn btn-warning" %>
+        <% else %>
+<%= link_to '+ Create my profile', new_usinfo_path , :class => "btn btn-success"%>
+        <% end %>

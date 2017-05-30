@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Friends</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Birthday</th>
+
+      
+      <th>Email</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usinfos.each do |info| %>
+      <tr>
+        <td><%= info.username %></td>
+        <td><%= info.birthday %></td>
+
+        
+        <td><%= info.user.email %></td>
+        <td colspan="3"><%= link_to 'Show', info ,:class => "btn btn-success" %>
+        <% if user_signed_in? %>
+        <% if current_user.email==info.user.email %>
+        <% @currentus=info %>
+        <%= link_to 'Edit', edit_usinfo_path(info),:class => "btn btn-warning" %>
+       <%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%></td>
+        <% end %>
+        
+  <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+        

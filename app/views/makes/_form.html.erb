@@ -1,0 +1,33 @@
+<%= form_for(@make) do |f| %>
+  <% if @make.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@make.errors.count, "error") %> prohibited this make from being saved:</h2>
+
+      <ul>
+      <% @make.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :property %><br>
+    <%= f.text_field :property %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :gear_id %><br>
+    <%= f.number_field :gear_id %>
+  </div>
+  <div class="field">
+    <%= f.label :update_date %><br>
+    <%= f.datetime_select :update_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

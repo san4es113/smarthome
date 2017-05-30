@@ -11,6 +11,7 @@ class UsinfosController < ApplicationController
   # GET /usinfos/1.json
   def show
   end
+<<<<<<< HEAD
  def profile
      @infos = Usinfo.all
         @myinfo
@@ -20,6 +21,9 @@ class UsinfosController < ApplicationController
         end
     end
   end
+=======
+
+>>>>>>> b3382de3a60779d8d2f3347773338cda0742e757
   # GET /usinfos/new
   def new
     @usinfo = Usinfo.new

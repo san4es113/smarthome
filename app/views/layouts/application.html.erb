@@ -31,6 +31,7 @@
 
 
 <nav class="navbar navbar-default">
+<<<<<<< HEAD
 
   <div class="container-fluid">
   
@@ -45,12 +46,25 @@
              
            <li><%=link_to "My Profile" , profile_path%></li>
            <li><%=link_to "Friends" , usinfos_path%></li>
+=======
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Smarthome</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav navbar-left">
+           <li><%=link_to "Profiles" , usinfos_path%></li>
+>>>>>>> b3382de3a60779d8d2f3347773338cda0742e757
            <li><%=link_to "Devises" , gears_path%></li>
            <li><%=link_to "Actions" , makes_path%></li>
 	</ul>
 
 
 
+<<<<<<< HEAD
     
                  <ul class="nav navbar-nav navbar-right" >
                     <li><a id="user"><%= current_user.email %></a></li>
@@ -61,6 +75,18 @@
                 <ul class="nav navbar-nav navbar-right" >
                      <li><%= link_to 'Sign up' , new_user_registration_path  %></li>
                      <li><%= link_to 'Sign in' , new_user_session_path  %> </li>
+=======
+    <% if user_signed_in? %>
+                 <ul class="nav navbar-nav navbar-right" >
+                    <li><a id="user"><%= current_user.email %></a></li>
+                    <li><%= link_to 'Sign_out' , destroy_user_session_path, method: :delete %></li>
+                    <li><%= link_to 'Edit_user_data' , edit_user_registration_path%></li>
+                </ul>
+            <% else %>
+                <ul class="nav navbar-nav navbar-right" >
+                     <li><%= link_to 'Sign_up' , new_user_registration_path  %></li>
+                     <li><%= link_to 'Sign_in' , new_user_session_path  %> </li>
+>>>>>>> b3382de3a60779d8d2f3347773338cda0742e757
                 </ul>
             <% end %>
     </div><!-- /.navbar-collapse -->
@@ -79,6 +105,7 @@
 
 
 	<body>
+<<<<<<< HEAD
     <div id="page-content-wrapper">
           <div class="container-fluid">
             <div class="row">
@@ -102,5 +129,10 @@
 
         
     </div>
+=======
+
+	<%= yield %>
+
+>>>>>>> b3382de3a60779d8d2f3347773338cda0742e757
 	</body>
 </html>

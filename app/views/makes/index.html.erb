@@ -17,8 +17,7 @@
   <tbody>
 
     <% @makes.each do |make| %>
-    <%= make.gear_id.to_s   %>
-    <%= request.original_url[43] %>
+    <%= if make.gear_id.to_s ==  request.original_url[43]  %>
       <tr>
         <td><%= make.property %></td>
         <td><%= make.state %></td>
@@ -27,7 +26,7 @@
         <%= link_to 'Edit', edit_make_path(make) , :class => "btn btn-warning"%></td>
      
       </tr>
-  
+   <% end %>
     <% end %>
   </tbody>
 </table>

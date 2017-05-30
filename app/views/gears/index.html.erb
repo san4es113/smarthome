@@ -28,7 +28,9 @@
         <td><%= gear.description %>
         <td><%= link_to 'Show', gear ,:class => "btn btn-info"%>
         <%= link_to 'Edit', edit_gear_path(gear) ,:class => "btn btn-warning"%>
-        <%= link_to 'Destroy', gear, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%></td>
+        <%= link_to 'Destroy', gear, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%>
+        <%= link_to 'Device State', makes_path(gear) ,:class => "btn btn-default"%>
+        </td>
       </tr>
     <% end %>
   </tbody>

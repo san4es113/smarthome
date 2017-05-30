@@ -5,6 +5,12 @@ class GearsController < ApplicationController
   # GET /gears.json
   def index
     @gears = Gear.all
+
+     @hash = Gmaps4rails.build_markers(@gears) do |gear , marker|
+    marker.lat gear.latitude
+    marker.lng gear.longitude
+    marker.infowindow gear.title
+    end
   end
 
   # GET /gears/1

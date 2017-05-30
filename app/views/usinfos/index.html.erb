@@ -7,39 +7,26 @@
 
 <h1>Friends</h1>
 
-<table class="table table-bordered" style="width:80%">
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Birthday</th>
-      <th>Email</th>
-      <th >Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @usinfos.each do |info| %>
-      <tr>
-        <td><%= info.username %></td>
-        <td><%= info.birthday %></td>
-
-
-
-        
-        <td><%= info.user.email %></td>
-        <td colspan="3"><%= link_to 'Show', info ,:class => "btn btn-success" %>
-        <% if user_signed_in? %>
+<ul id="list">
+   <% @usinfos.each do |info| %>
+      <li>Username: <div class="c"><%= info.username %></div></li>
+      <li>Birthday: <div class="c"><%= info.birthday %></div></li>
+      <li>Email: <div class="c"><%= info.user.email %></div></li>
+      <li >
+      Actions: <br> <%= link_to 'Show', info ,:class => "btn btn-success" %>
+      <% if user_signed_in? %>
         <% if current_user.email==info.user.email %>
         <% @currentus=info %>
         <%= link_to 'Edit', edit_usinfo_path(info),:class => "btn btn-warning" %>
-       <%= link_to 'Delete', info, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%></td>
-        <% end %>
-        
-  <% end %>
-      </tr>
+       <%= link_to 'Delete', info, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%>
+          <% end %>
     <% end %>
-  </tbody>
-</table>
+       </li>
+     
+      
+  
+ <% end %>
+</ul>
 
 <br>
 

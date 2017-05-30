@@ -2,6 +2,10 @@
   display: block;
   color:white;
 }
+.c{
+	margin-left:20px;
+	color:blue;
+}
 .table{
 	color:white;
 }
@@ -12,11 +16,12 @@
 	border-radius: 10px;
 	list-style: none;
 	color :black;
-	background-color: white;
+	background-color: darkgrey;
 	float:left;
 	text-align: left;
 	font-size: 20px;
 	font-family: Verdana;
+	color:green;
 }
 .table tr td{
 

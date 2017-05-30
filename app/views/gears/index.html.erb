@@ -11,12 +11,12 @@
 
     <% @gears.each do |gear| %>
       
-        <li >Title: <%= gear.title %></li>
-        <li >Key: <%= gear.definitionkey %></li>
-        <li > Owner: <%= gear.usinfo.user.email %></li>
-        <li > Address: <%= gear.address %></li>
-        <li > Description: <%= gear.description %>
-        <li >  Makes : <br>
+        <li >Title:  <div class="c"><%= gear.title %></div></li>
+        <li >Key:  <div class="c"><%= gear.definitionkey %></div ></li>
+        <li >Owner:  <div class="c"><%= gear.usinfo.user.email %></div ></li>
+        <li >Address:  <div class="c"><%= gear.address %></div ></li>
+        <li >Description: <div class="c"><%= gear.description %></div ></li>
+        <li >  Makes:  <br>
         <%= link_to 'Show', gear ,:class => "btn btn-info"%>
         <%= link_to 'Edit', edit_gear_path(gear) ,:class => "btn btn-warning"%>
         <%= link_to 'Delete', gear, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%>

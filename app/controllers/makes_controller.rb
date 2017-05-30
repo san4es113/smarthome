@@ -6,9 +6,7 @@ class MakesController < ApplicationController
   def index
     @makes = Make.all
   end
- def indexfordev
-    @makes = Make.all
-  end
+
   # GET /makes/1
   # GET /makes/1.json
   def show

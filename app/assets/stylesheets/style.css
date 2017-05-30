@@ -18,5 +18,6 @@ cursor: pointer;
 	margin-left: 5%;
 }
 .btn{
-	width:150px;
+	width:170px;
+	margin :2px;
 }

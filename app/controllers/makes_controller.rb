@@ -6,7 +6,7 @@ class MakesController < ApplicationController
   def index
     @makes = Make.all
     begin
-      @gear = Gear.find(request.original_url[28])
+      @gear = Gear.find(request.original_url[43])
     rescue
  
     end

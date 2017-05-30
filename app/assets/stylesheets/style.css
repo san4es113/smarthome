@@ -26,6 +26,8 @@
 	border-style: outset;
 	border-width: 10px;
 	border-color: blue;
+	width: 30%;
+	height:25%;
 }
 .table tr td{
 

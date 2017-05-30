@@ -1,7 +1,10 @@
-.table li a{
-  display: block;
-  text-decoration: none;
-  color:#ddd;
+.table tr th{
+
+  color:white;
+}
+table tr td{
+
+  color:white;
 }
 .navbar{
 	margin:0px;
@@ -15,11 +18,12 @@
 }
 #page-content-wrapper{
 	text-align: center;
-
-	height: 100%;
+background-color: #333333;
+	height: 200%;
+	color:white;
 }
-#wrapper{
-background-color: yellow;
+.page{
+background-color: #333333;
 text-align: center;
 }
 .table{

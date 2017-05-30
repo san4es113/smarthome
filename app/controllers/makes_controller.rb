@@ -27,7 +27,7 @@ class MakesController < ApplicationController
       client = MQTT::Client.connect('tcp://test.mosquitto.org:', 1883)
     end
 
-    
+    Thread.kill(@thr)
 
     @thr=Thread.new do
       

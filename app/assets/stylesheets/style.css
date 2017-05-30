@@ -16,6 +16,7 @@
 #page-content-wrapper{
 	text-align: center;
 	background-color: yellow;
+	height: 100%;
 }
 #wrapper{
 background-color: yellow;

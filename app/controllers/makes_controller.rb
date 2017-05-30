@@ -31,7 +31,7 @@ class MakesController < ApplicationController
       MQTT::Client.connect(conn_opts) do |c|
         # publish a message to the topic 'test'
         loop do
-          c.publish('st2.r216_dev', 'set_temperature:18')
+          c.publish('st2.r216_dev', 'set_temperature:'+=:state)
           sleep 1
         end
       end

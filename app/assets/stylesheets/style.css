@@ -16,7 +16,7 @@
 	border-radius: 10px;
 	list-style: none;
 	color :black;
-	background-color: darkorange;
+	background-color: lightblue;
 	float:left;
 	text-align: left;
 	font-size: 20px;
@@ -25,7 +25,7 @@
 	margin: 5px;
 	border-style: outset;
 	border-width: 10px;
-	border-color: red;
+	border-color: blue;
 }
 .table tr td{
 

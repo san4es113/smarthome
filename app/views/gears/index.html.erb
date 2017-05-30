@@ -5,39 +5,28 @@
 <div id="wrapper">
 
 
-<table class="table table-bordered">
-  <thead>
-    <tr >
-      <th >Title</th>
-      <th >Key</th>
-      <th >Owner</th>
-      <th >Latitude</th>
-      <th >Longitude</th>
-      <th >Address</th>
-      <th >Description</th>
-      <th >Makes</th>
-    </tr>
-  </thead>
 
-  <tbody>
+  <ul id="list">
+ 
+
     <% @gears.each do |gear| %>
-      <tr >
-        <td ><%= gear.title %></td>
-        <td ><%= gear.definitionkey %></td>
-        <td > <%= gear.usinfo.user.email %></td>
-        <td ><%= gear.latitude %></td>
-        <td ><%= gear.longitude %></td>
-        <td ><%= gear.address %></td>
-        <td ><%= gear.description %>
-        <td ><%= link_to 'Show', gear ,:class => "btn btn-info"%>
+      
+        <li >Title: <%= gear.title %></li>
+        <li >Key: <%= gear.definitionkey %></li>
+        <li > Owner: <%= gear.usinfo.user.email %></li>
+        <li >Latitude :<%= gear.latitude %></li>
+        <li >Longitude: <%= gear.longitude %></li>
+        <li > Address: <%= gear.address %></li>
+        <li > Description: <%= gear.description %>
+        <li >  Makes : <%= link_to 'Show', gear ,:class => "btn btn-info"%>
         <%= link_to 'Edit', edit_gear_path(gear) ,:class => "btn btn-warning"%>
         <%= link_to 'Delete', gear, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%>
         <%= link_to 'Device State', makes_path(gear) ,:class => "btn btn-default"%>
-        </td>
-      </tr>
+        </li>
+      </ul>
     <% end %>
-  </tbody>
-</table>
+
+
 </div>
 <br>
 

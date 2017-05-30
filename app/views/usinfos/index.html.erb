@@ -32,7 +32,7 @@
         <% if current_user.email==info.user.email %>
         <% @currentus=info %>
         <%= link_to 'Edit', edit_usinfo_path(info),:class => "btn btn-warning" %>
-       <%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%></td>
+       <%= link_to 'Delete', info, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%></td>
         <% end %>
         
   <% end %>

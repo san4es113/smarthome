@@ -60,3 +60,18 @@ color:white;
 	width:170px;
 	margin :2px;
 }
+#map{
+	border-radius: 15px;
+
+}
+.content{
+color:white;
+	height: 100%;
+}
+.field{
+	color:black;
+
+}
+.actions{
+	color:black;
+}

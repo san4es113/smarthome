@@ -32,7 +32,7 @@ class MakesController < ApplicationController
     end
 if(@var!=0)
     Thread.kill(@thr)
-    
+  end
  @var=1
     @thr=Thread.new do
       

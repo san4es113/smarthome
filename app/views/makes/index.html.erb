@@ -22,7 +22,7 @@
         <td><%= make.property %></td>
         <td><%= make.state %></td>
         <td><%= make.update_date %></td>
-        <td><%= link_to 'Show', make , :class => "btn btn-info" %>
+        <td><%= link_to 'Show', make , :class => v %>
         <%= link_to 'Edit', edit_make_path(make) , :class => "btn btn-warning"%></td>
      
       </tr>
@@ -36,7 +36,7 @@
 <%= link_to 'new', new_make_path %>
 <%= link_to 'edit', edit_make_path("1") %>
 <br>
-<%= link_to 'publish', grep_path %>
+<%= link_to 'Create connection', grep_path , :class => "btn btn-primary"%>
 <br>
 <%=  p @message  %>
 <%= p @g %>

@@ -1,5 +1,6 @@
 .nav{
 	color:blue;
+
 }
 
 
@@ -10,12 +11,13 @@
 	text-align: center;
 }
 #wrapper{
-cursor: pointer;
 
+text-align: center;
 }
 .table{
 	width: 20%;
-	margin-left: 5%;
+	margin: 2%;
+	text-align: center;
 }
 .btn{
 	width:170px;

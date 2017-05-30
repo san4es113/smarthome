@@ -1,9 +1,12 @@
 .nav{
 	color:blue;
-
+    background-color: #98b2b5;
 }
 
-
+.container{
+	background-color:#98b2b5;
+	color:blue;
+}
 #user{
   color:green;
 }

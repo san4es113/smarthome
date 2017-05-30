@@ -7,8 +7,9 @@
 
 <h1>Friends</h1>
 
-<ul id="list">
+
    <% @usinfos.each do |info| %>
+   <ul id="list">
       <li>Username: <div class="c"><%= info.username %></div></li>
       <li>Birthday: <div class="c"><%= info.birthday %></div></li>
       <li>Email: <div class="c"><%= info.user.email %></div></li>
@@ -24,9 +25,9 @@
        </li>
      
       
-  
+  </ul>
  <% end %>
-</ul>
+
 
 <br>
 

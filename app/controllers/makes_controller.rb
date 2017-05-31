@@ -37,7 +37,6 @@ class MakesController < ApplicationController
     @gear=Gear.last
       @temp = 'set_temperature:'+ @makes.state
       MQTT::Client.connect(conn_opts) do |c|
-        # publish a message to the topic 'test'
           c.publish(@gear.definitionkey, @temp )
       end
     end
@@ -45,7 +44,6 @@ class MakesController < ApplicationController
 
   Thread.new do
       MQTT::Client.connect(conn_opts1) do |c|
-        # The block will be called when you messages arrive to the topic
         c.get('test') do |topic, message|
           @message = "#{topic}: #{message}"
         end

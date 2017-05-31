@@ -37,7 +37,9 @@
 .menu{
 	color:white;
 }
-
+#setparam{
+	width:150px;
+}
 #user{
   color:green;
 }

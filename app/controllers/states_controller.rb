@@ -28,7 +28,7 @@ class StatesController < ApplicationController
       Thread.new do
         MQTT::Client.connect(conn_opts) do |c|
           # The block will be called when you messages arrive to the topic
-          c.get('test') do |topic, message|
+          c.get('st2.r216_dev') do |topic, message|
             puts "#{topic}: #{message}"
           end
         end

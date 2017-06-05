@@ -43,8 +43,8 @@ class MakesController < ApplicationController
 
 
   Thread.new do
-      MQTT::Client.connect(conn_opts1) do |c|
-        c.get('test') do |topic, message|
+      MQTT::Client.connect(conn_opts) do |c|
+        c.get('st1.r216_dev') do |topic, message|
           @message = "#{topic}: #{message}"
         end
       end

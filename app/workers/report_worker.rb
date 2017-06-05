@@ -17,20 +17,7 @@ class ReportWorker
         username: uri.user,
         password: uri.password,
       }
-
-
-
       @states = State.all
-
-
- @states.each do |elt|
-          MQTT::Client.connect(conn_opts) do |c|
-            # publish a message to the topic 'test'
-              c.publish(elt.gear, elt.property+':'+elt.set)
-            end
-          end
-        end
-      
       @states.each do |st|
       Thread.new do
         MQTT::Client.connect(conn_opts) do |c|
@@ -47,8 +34,7 @@ class ReportWorker
 
       
 
-     
-
+      
 end
 
 

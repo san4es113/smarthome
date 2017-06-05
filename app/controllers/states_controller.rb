@@ -18,7 +18,25 @@ class StatesController < ApplicationController
 
   def report
     ReportWorker.perform_async()
-           
+
+    uri = URI.parse ENV['CLOUDMQTT_URL'] || 'mqtt://localhost:1883'
+      conn_opts = {
+        remote_host: uri.host,
+        remote_port: uri.port,
+        username: uri.user,
+        password: uri.password,
+      }
+      @states = State.all
+         @states.each do |elt|
+        Thread.new do
+          MQTT::Client.connect(conn_opts) do |c|
+            # publish a message to the topic 'test'
+              c.publish(elt.gear, elt.property+':'+elt.set)
+            end
+          end
+        end
+
+  end  
   end
 
 

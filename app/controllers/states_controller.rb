@@ -16,54 +16,7 @@ class StatesController < ApplicationController
 
   def send_parametrs
 
-    Thread.new
-    MQTT::Client.connect('test.mosquitto.org') do |c|
-      c.publish('test', 'message')
-    end
-  end
-    # Subscribe example
-  Thread.new
-    MQTT::Client.connect('test.mosquitto.org') do |c|
-      # If you pass a block to the get method, then it will loop
-      c.get('test') do |topic,message|
-        puts "#{topic}: #{message}"
-      end
-    end
-  end
-
- 
-
-
-
-uri = URI.parse ENV['CLOUDMQTT_URL'] || 'mqtt://localhost:1883'
-conn_opts = {
-  remote_host: uri.host,
-  remote_port: uri.port,
-  username: uri.user,
-  password: uri.password,
-}
-
-Thread.new do
-  MQTT::Client.connect(conn_opts) do |c|
-    # The block will be called when you messages arrive to the topic
-    c.get('test') do |topic, message|
-      puts "#{topic}: #{message}"
-    end
-  end
-end
- Thread.new
-  MQTT::Client.connect(conn_opts) do |c|
-    # publish a message to the topic 'test'
-    loop do
-      c.publish('st2.r216_dev', 'Hello World')
-      sleep 1
-    end
-  end
- end
-
-
-
-
+    
 
  end
 

@@ -4,10 +4,12 @@ one:
   property: MyString
   state: MyString
   set: MyString
+  gear: MyString
   user_id: 1
 
 two:
   property: MyString
   state: MyString
   set: MyString
+  gear: MyString
   user_id: 1

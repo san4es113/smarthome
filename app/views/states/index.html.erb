@@ -2,12 +2,13 @@
 
 <h1>Listing States</h1>
 
-<table class="table">
+<table>
   <thead>
     <tr>
       <th>Property</th>
       <th>State</th>
       <th>Set</th>
+      <th>Gear</th>
       <th>User</th>
       <th colspan="3"></th>
     </tr>
@@ -19,6 +20,7 @@
         <td><%= state.property %></td>
         <td><%= state.state %></td>
         <td><%= state.set %></td>
+        <td><%= state.gear %></td>
         <td><%= state.user_id %></td>
         <td><%= link_to 'Show', state %></td>
         <td><%= link_to 'Edit', edit_state_path(state) %></td>

@@ -24,15 +24,7 @@ class StatesController < ApplicationController
   # POST /states
   # POST /states.json
   def create
-    @current_usinfo
-    @usinfo=Usinfo.all
-    @usinfo.each do |elt|
-      if(elt.user.email==current_user.email)
-        @current_usinfo=elt
-    end
-    end
-
-    @state = @current_usinfo.states.new(state_params)
+    @state = State.new(state_params)
 
     respond_to do |format|
       if @state.save
@@ -77,6 +69,6 @@ class StatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def state_params
-      params.require(:state).permit(:property, :state, :set, :user_id)
+      params.require(:state).permit(:property, :state, :set, :gear, :user_id)
     end
 end

@@ -18,7 +18,7 @@ class StatesControllerTest < ActionController::TestCase
 
   test "should create state" do
     assert_difference('State.count') do
-      post :create, state: { property: @state.property, set: @state.set, state: @state.state, user_id: @state.user_id }
+      post :create, state: { gear: @state.gear, property: @state.property, set: @state.set, state: @state.state, user_id: @state.user_id }
     end
 
     assert_redirected_to state_path(assigns(:state))
@@ -35,7 +35,7 @@ class StatesControllerTest < ActionController::TestCase
   end
 
   test "should update state" do
-    patch :update, id: @state, state: { property: @state.property, set: @state.set, state: @state.state, user_id: @state.user_id }
+    patch :update, id: @state, state: { gear: @state.gear, property: @state.property, set: @state.set, state: @state.state, user_id: @state.user_id }
     assert_redirected_to state_path(assigns(:state))
   end
 

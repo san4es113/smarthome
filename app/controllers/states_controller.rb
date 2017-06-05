@@ -24,17 +24,19 @@ class StatesController < ApplicationController
         username: uri.user,
         password: uri.password,
       }
-
+      @states = State.all
       Thread.new do
         MQTT::Client.connect(conn_opts) do |c|
           # The block will be called when you messages arrive to the topic
           c.get('st2.r216_dev') do |topic, message|
-            puts "#{topic}: #{message}"
+            states.each do |elt|
+              elt.state = message
+            end
           end
         end
       end
 
-      @states = State.all
+      
 
       @states.each do |elt|
         Thread.new do

@@ -32,7 +32,7 @@ class ReportWorker
         end
       end
 
-      
+      end
 
       
 end

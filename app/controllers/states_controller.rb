@@ -29,9 +29,10 @@ class StatesController < ApplicationController
         MQTT::Client.connect(conn_opts) do |c|
           # The block will be called when you messages arrive to the topic
           c.get('st2.r216_dev') do |topic, message|
-              item = @states.find(1)
-              item.state = 2
-              item.save
+              @states.each do |elt|
+              elt.state = 2
+              elt.save
+          end
           end
         end
       end

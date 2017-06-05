@@ -44,10 +44,10 @@ class StatesController < ApplicationController
         MQTT::Client.connect(conn_opts) do |c|
           c.get(st.gear) do |topic, message|
           @states.each do |st|
-            if message.to_s.split(':')[0].to_s == st.property.to_s
-                  st.state = message.to_s.split(':')[1]
+           
+                  st.state = st.property.to_s
                   st.save
-            end
+            
           end
           end
         end

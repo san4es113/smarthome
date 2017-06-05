@@ -33,15 +33,20 @@ class StatesController < ApplicationController
           end
         end
       end
-      Thread.new do
-      MQTT::Client.connect(conn_opts) do |c|
-        # publish a message to the topic 'test'
-        loop do
-          c.publish('test', 'Hello World')
-          sleep 1
+
+      @states = State.all
+
+      @states.each do |elt|
+        Thread.new do
+          MQTT::Client.connect(conn_opts) do |c|
+            # publish a message to the topic 'test'
+              c.publish(states.gear, states.set)
+            end
+          end
         end
       end
-      end
+
+      
   end
 
 

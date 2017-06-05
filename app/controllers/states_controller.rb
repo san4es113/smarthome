@@ -45,7 +45,7 @@ class StatesController < ApplicationController
           c.get(st.gear) do |topic, message|
           
            
-                  st.state = st.property
+                  st.state = message.to_s.split(':')[0]
                   st.save
             
           end

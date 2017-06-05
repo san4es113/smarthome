@@ -53,7 +53,6 @@ class StatesController < ApplicationController
         end
       end
 
-      end
 
 
 
@@ -62,7 +61,8 @@ class StatesController < ApplicationController
 
 
 
-        
+
+
 
   end  
  

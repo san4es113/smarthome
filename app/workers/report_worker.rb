@@ -18,7 +18,7 @@ class ReportWorker
         password: uri.password,
       }
       @states = State.all
-    
+    end
 
       
 end

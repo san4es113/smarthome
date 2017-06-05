@@ -45,7 +45,7 @@ class StatesController < ApplicationController
           c.get(st.gear) do |topic, message|
           @states.each do |st|
            
-                  st.state = st.property.to_s
+                  st.state = "sdsd"
                   st.save
             
           end

@@ -17,41 +17,8 @@ class StatesController < ApplicationController
 
 
   def report
-      uri = URI.parse ENV['CLOUDMQTT_URL'] || 'mqtt://localhost:1883'
-      conn_opts = {
-        remote_host: uri.host,
-        remote_port: uri.port,
-        username: uri.user,
-        password: uri.password,
-      }
-      @states = State.all
-      @states.each do |st|
-      Thread.new do
-        MQTT::Client.connect(conn_opts) do |c|
-          # The block will be called when you messages arrive to the topic
-          c.get(st.gear) do |topic, message|
-                if message.to_s.split(':')[0] == st.property
-                  st.state = message.to_s.split(':')[1]
-                  st.save
-            end
-          end
-          end
-        end
-      end
-
-      
-
-      @states.each do |elt|
-        Thread.new do
-          MQTT::Client.connect(conn_opts) do |c|
-            # publish a message to the topic 'test'
-              c.publish(elt.gear, elt.property+':'+elt.set)
-            end
-          end
-        end
-
- 
-      
+    ReportWorker.perform_async()
+           
   end
 
 

@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          has_many :usinfos
          has_many :gears
-         has_many :makes
+         has_many :states
 end

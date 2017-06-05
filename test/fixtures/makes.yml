@@ -3,11 +3,11 @@
 one:
   property: MyString
   state: MyString
-  gear_id: 1
-  update_date: 2017-05-28 11:29:57
+  update: MyString
+  user_id: 1
 
 two:
   property: MyString
   state: MyString
-  gear_id: 1
-  update_date: 2017-05-28 11:29:57
+  update: MyString
+  user_id: 1

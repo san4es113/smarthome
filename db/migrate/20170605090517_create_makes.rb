@@ -3,8 +3,8 @@ class CreateMakes < ActiveRecord::Migration
     create_table :makes do |t|
       t.string :property
       t.string :state
-      t.integer :gear_id
-      t.datetime :update_date
+      t.string :update
+      t.integer :user_id
 
       t.timestamps null: false
     end

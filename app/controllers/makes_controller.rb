@@ -1,71 +1,16 @@
 class MakesController < ApplicationController
   before_action :set_make, only: [:show, :edit, :update, :destroy]
-  
-  
+
   # GET /makes
   # GET /makes.json
   def index
     @makes = Make.all
-   end
+  end
 
   # GET /makes/1
   # GET /makes/1.json
   def show
   end
-
-  def report
-     @message
-    uri = URI.parse "mqtt://naffemhc:cCcVQHxAImG6@m11.cloudmqtt.com:13355"
-
-
-
-
-    conn_opts = {
-      remote_host: uri.host,
-      remote_port: uri.port,
-      username: uri.user,
-      password: uri.password,
-    }
- 
-   Thread.new do
-      client = MQTT::Client.connect('tcp://test.mosquitto.org:', 1883)
-    end
-
-
-   Thread.new do
-    @makes = Make.last
-    @gear=Gear.last
-      @temp = 'set_temperature:'+ @makes.state
-      MQTT::Client.connect(conn_opts) do |c|
-          c.publish(@gear.definitionkey, @temp )
-      end
-    end
-
-
-  Thread.new do
-      MQTT::Client.connect(conn_opts) do |c|
-        c.get('st1.r216_dev') do |topic, message|
-          @message = "#{topic}: #{message}"
-        end
-      end
-    end
-
-
-
-  end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   # GET /makes/new
   def new
@@ -79,9 +24,6 @@ class MakesController < ApplicationController
   # POST /makes
   # POST /makes.json
   def create
-
- 
-
     @make = Make.new(make_params)
 
     respond_to do |format|
@@ -127,6 +69,6 @@ class MakesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def make_params
-      params.require(:make).permit(:property, :state, :gear_id, :update_date)
+      params.require(:make).permit(:property, :state, :update, :user_id)
     end
 end

@@ -18,7 +18,7 @@ class MakesControllerTest < ActionController::TestCase
 
   test "should create make" do
     assert_difference('Make.count') do
-      post :create, make: { gear_id: @make.gear_id, property: @make.property, state: @make.state, update_date: @make.update_date }
+      post :create, make: { property: @make.property, state: @make.state, update: @make.update, user_id: @make.user_id }
     end
 
     assert_redirected_to make_path(assigns(:make))
@@ -35,7 +35,7 @@ class MakesControllerTest < ActionController::TestCase
   end
 
   test "should update make" do
-    patch :update, id: @make, make: { gear_id: @make.gear_id, property: @make.property, state: @make.state, update_date: @make.update_date }
+    patch :update, id: @make, make: { property: @make.property, state: @make.state, update: @make.update, user_id: @make.user_id }
     assert_redirected_to make_path(assigns(:make))
   end
 

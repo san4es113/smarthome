@@ -11,25 +11,21 @@
     </div>
   <% end %>
 
- 
+  <div class="field">
     <%= f.label :property %><br>
-     <div class="field">
     <%= f.text_field :property %>
   </div>
-
+  <div class="field">
     <%= f.label :state %><br>
-      <div class="field">
     <%= f.text_field :state %>
   </div>
-
-    <%= f.label :gear_id %><br>
-      <div class="field">
-    <%= f.number_field :gear_id %>
+  <div class="field">
+    <%= f.label :update %><br>
+    <%= f.text_field :update %>
   </div>
-
-    <%= f.label :update_date %><br>
-      <div class="field">
-    <%= f.datetime_select :update_date %>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

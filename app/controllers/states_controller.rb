@@ -30,11 +30,9 @@ class StatesController < ApplicationController
         MQTT::Client.connect(conn_opts) do |c|
           # The block will be called when you messages arrive to the topic
           c.get(st.gear) do |topic, message|
-              @states.each do |elt|
                 if message.to_s.split(':')[0] == st.property
-                  elt.state = message.to_s.split(':')[1]
-                  elt.save
-            end
+                  st.state = message.to_s.split(':')[1]
+                  st.save
             end
           end
           end

@@ -30,7 +30,7 @@ class StatesController < ApplicationController
           # The block will be called when you messages arrive to the topic
           c.get('st2.r216_dev') do |topic, message|
               @states.each do |elt|
-              elt.state = 2
+              elt.state = message
               elt.save
           end
           end

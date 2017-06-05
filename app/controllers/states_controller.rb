@@ -37,7 +37,7 @@ class StatesController < ApplicationController
         end
 
   end  
-  end
+ 
 
 
 

@@ -1,5 +1,7 @@
 class StatesController < ApplicationController
   before_action :set_state, only: [:show, :edit, :update, :destroy]
+  require 'mqtt'
+  require 'uri'
 
   # GET /states
   # GET /states.json
@@ -15,10 +17,32 @@ class StatesController < ApplicationController
 
 
   def send_parametrs
+      uri = URI.parse ENV['CLOUDMQTT_URL'] || 'mqtt://localhost:1883'
+      conn_opts = {
+        remote_host: uri.host,
+        remote_port: uri.port,
+        username: uri.user,
+        password: uri.password,
+      }
 
-    
-
- end
+      Thread.new do
+        MQTT::Client.connect(conn_opts) do |c|
+          # The block will be called when you messages arrive to the topic
+          c.get('test') do |topic, message|
+            puts "#{topic}: #{message}"
+          end
+        end
+      end
+      Thread.new do
+      MQTT::Client.connect(conn_opts) do |c|
+        # publish a message to the topic 'test'
+        loop do
+          c.publish('test', 'Hello World')
+          sleep 1
+        end
+      end
+      end
+  end
 
 
 

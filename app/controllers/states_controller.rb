@@ -16,7 +16,7 @@ class StatesController < ApplicationController
 
 
 
-  def send_parametrs
+  def report
       uri = URI.parse ENV['CLOUDMQTT_URL'] || 'mqtt://localhost:1883'
       conn_opts = {
         remote_host: uri.host,

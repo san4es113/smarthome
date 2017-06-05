@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web=>"/sidekiq"
   # You can have the root of your site routed with "root"
   root 'usinfos#index'
-  get 'grep' => 'makes#report'
+  get 'sendparam' => 'states#report'
 
 get 'profile' => 'usinfos#profile'
 

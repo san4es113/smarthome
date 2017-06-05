@@ -30,10 +30,10 @@ class StatesController < ApplicationController
           # The block will be called when you messages arrive to the topic
           c.get('st2.r216_dev') do |topic, message|
               @states.each do |elt|
-                if message.to_s.split(':')[0] == elt.property
-              elt.state = message.to_s.split(':')[1]
-              elt.save
-            end
+                #if message.to_s.split(':')[0] == elt.property
+                  elt.state = message.to_s.split(':')[1]
+                  elt.save
+            #end
           end
           end
         end

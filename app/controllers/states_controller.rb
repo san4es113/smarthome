@@ -24,7 +24,7 @@ class StatesController < ApplicationController
   # POST /states
   # POST /states.json
   def create
-    @state = State.new(state_params)
+    @state = current_user.states.new(state_params)
 
     respond_to do |format|
       if @state.save

@@ -1,6 +1,6 @@
-class CreateMakes < ActiveRecord::Migration
+class CreateStates < ActiveRecord::Migration
   def change
-    create_table :makes do |t|
+    create_table :states do |t|
       t.string :property
       t.string :state
       t.string :update

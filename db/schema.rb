@@ -11,16 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605090517) do
-
-  create_table "actions", force: :cascade do |t|
-    t.string   "property"
-    t.string   "state"
-    t.integer  "gear_id"
-    t.datetime "update_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
+ActiveRecord::Schema.define(version: 20170605093106) do
 
   create_table "gears", force: :cascade do |t|
     t.string   "title"
@@ -34,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170605090517) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "makes", force: :cascade do |t|
+  create_table "states", force: :cascade do |t|
     t.string   "property"
     t.string   "state"
     t.string   "update"

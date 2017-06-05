@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :makes
+  resources :states
   devise_for :users
   resources :gears
   resources :usinfos

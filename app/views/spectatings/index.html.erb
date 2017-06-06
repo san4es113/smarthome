@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Spectatings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Address</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Content</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spectatings.each do |spectating| %>
+      <tr>
+        <td><%= spectating.latitude %></td>
+        <td><%= spectating.longitude %></td>
+        <td><%= spectating.address %></td>
+        <td><%= spectating.title %></td>
+        <td><%= spectating.description %></td>
+        <td><%= spectating.content %></td>
+        <td><%= spectating.date %></td>
+        <td><%= link_to 'Show', spectating %></td>
+        <td><%= link_to 'Edit', edit_spectating_path(spectating) %></td>
+        <td><%= link_to 'Destroy', spectating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spectating', new_spectating_path %>

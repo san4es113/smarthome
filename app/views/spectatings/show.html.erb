@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @spectating.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @spectating.longitude %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @spectating.address %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @spectating.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @spectating.description %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @spectating.content %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @spectating.date %>
+</p>
+
+<%= link_to 'Edit', edit_spectating_path(@spectating) %> |
+<%= link_to 'Back', spectatings_path %>

@@ -2,7 +2,7 @@
 
 <h1>Listing Spectatings</h1>
 
-<table>
+<table class="table table bordered">
   <thead>
     <tr>
       <th>Latitude</th>
@@ -27,7 +27,7 @@
         <td><%= spectating.description %></td>
         <td><%= spectating.content %></td>
         <td><%= spectating.date %></td>
-         <%= image_tag photo.image.url(:large) %>
+         <td><%= image_tag spectating.image.url(:thumb) %></td>
         <td><%= link_to 'Show', spectating %></td>
         <td><%= link_to 'Edit', edit_spectating_path(spectating) %></td>
         <td><%= link_to 'Destroy', spectating, method: :delete, data: { confirm: 'Are you sure?' } %></td>

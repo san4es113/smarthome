@@ -60,7 +60,7 @@ class SpectatingsController < ApplicationController
     end
     end
    
-    @spectating = @current_usinfo.spectatings.new(spectating_params)
+    @spectating = Spectating.new(spectating_params)
 
     respond_to do |format|
       if @spectating.save
@@ -105,6 +105,6 @@ class SpectatingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spectating_params
-      params.require(:spectating).permit(:latitude, :longitude, :address, :title, :description, :content, :date)
+      params.require(:spectating).permit(:latitude, :longitude, :address, :title, :description, :content, :date , :image)
     end
 end

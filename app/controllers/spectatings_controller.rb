@@ -5,6 +5,33 @@ class SpectatingsController < ApplicationController
   # GET /spectatings.json
   def index
     @spectatings = Spectating.all
+     @hash = Gmaps4rails.build_markers(@spectatings) do |spec , marker|
+        marker.lat spec.latitude
+        marker.lng spec.longitude
+        marker.infowindow spec.title
+        end
+
+      uri = URI.parse ENV['tcp://test.mosquitto.org:1883'] || 'mqtt://localhost:1883'
+      conn_opts = {
+        remote_host: uri.host,
+        remote_port: uri.port,
+        username: uri.user,
+        password: uri.password,
+      }
+      Thread.new do
+            MQTT::Client.connect(conn_opts) do |c|
+             c.get(@state.gear) do |topic, message|
+               
+                      @state.state = message.to_s.split(':')[1]
+                      @state.save
+               end       
+              end
+           end
+
+
+
+
+
   end
 
   # GET /spectatings/1

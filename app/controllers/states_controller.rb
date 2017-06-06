@@ -17,7 +17,7 @@ class StatesController < ApplicationController
 
 
   def report
-    ReportWorker.perform_async()
+
 
     uri = URI.parse ENV['CLOUDMQTT_URL'] || 'mqtt://localhost:1883'
       conn_opts = {
@@ -29,7 +29,7 @@ class StatesController < ApplicationController
 
 
       
-@st=State.last
+
       Thread.new do
         MQTT::Client.connect(conn_opts) do |c|
           c.get(st.gear) do |topic, message|
@@ -39,32 +39,6 @@ class StatesController < ApplicationController
           end
         end
       end
-
-
-      
-         @state=State.last
-        Thread.new do
-          MQTT::Client.connect(conn_opts) do |c|
-            # publish a message to the topic 'test'
-              c.publish(@state.gear, @state.property+':'+@state.set)
-            end
-          end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   end  
  
@@ -101,10 +75,26 @@ class StatesController < ApplicationController
   # PATCH/PUT /states/1
   # PATCH/PUT /states/1.json
   def update
+ uri = URI.parse ENV['CLOUDMQTT_URL'] || 'mqtt://localhost:1883'
+      conn_opts = {
+        remote_host: uri.host,
+        remote_port: uri.port,
+        username: uri.user,
+        password: uri.password,
+      }
+
+    
     respond_to do |format|
       if @state.update(state_params)
         format.html { redirect_to @state, notice: 'State was successfully updated.' }
         format.json { render :show, status: :ok, location: @state }
+
+         Thread.new do
+          MQTT::Client.connect(conn_opts) do |c|
+            # publish a message to the topic 'test'
+              c.publish(@state.gear, @state.property+':'+@state.set)
+            end
+          end
       else
         format.html { render :edit }
         format.json { render json: @state.errors, status: :unprocessable_entity }

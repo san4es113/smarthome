@@ -88,15 +88,15 @@ class StatesController < ApplicationController
               @state.save
             end
             end
-           @thread1 =  Thread.new do
-            MQTT::Client.connect(conn_opts) do |c|
-              c.get(@state.gear) do |topic, message|
+           #@thread1 =  Thread.new do
+           # MQTT::Client.connect(conn_opts) do |c|
+           #   c.get(@state.gear) do |topic, message|
                
                       #@state.state = message.to_s.split(':')[1]
                       #@state.save
-               end       
-              end
-            end
+            #   end       
+            #  end
+           #end
         
       
       else

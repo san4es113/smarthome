@@ -80,7 +80,7 @@ class StatesController < ApplicationController
 
         
 
-         @thread = Thread.new do
+         Thread.new do
           MQTT::Client.connect(conn_opts) do |c|
             # publish a message to the topic 'test'
               c.publish(@state.gear, @state.property+':'+@state.set)

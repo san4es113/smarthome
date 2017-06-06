@@ -26,7 +26,7 @@ class StatesController < ApplicationController
         username: uri.user,
         password: uri.password,
       }
-@states = State.all
+
 
       
 @st=State.last
@@ -41,11 +41,11 @@ class StatesController < ApplicationController
       end
 
       
-         @states.each do |elt|
+         @state=State.last
         Thread.new do
           MQTT::Client.connect(conn_opts) do |c|
             # publish a message to the topic 'test'
-              c.publish(elt.gear, elt.property+':'+elt.set)
+              c.publish(@state.gear, @state.property+':'+@state.set)
             end
           end
         end

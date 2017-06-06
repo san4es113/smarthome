@@ -1,6 +1,8 @@
 .table li a{
   display: block;
   color:white;
+  text-shadow: 2px 2px #ff0000;
+  font-size: 20px;
 }
 .c{
 	margin-left:20px;

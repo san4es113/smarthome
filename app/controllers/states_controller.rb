@@ -28,9 +28,11 @@ class StatesController < ApplicationController
       }
 @states = State.all
 
-      @states.each do |st|
+      
+
       Thread.new do
         MQTT::Client.connect(conn_opts) do |c|
+          @states.each do |st|
           c.get(st.gear) do |topic, message|
           
            

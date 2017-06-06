@@ -4,6 +4,5 @@ class ContactMailer < ActionMailer::Base
     @name = name
     @email = email
     @body = "Розпізнано нову особу , щоб переглянути відвідайте сайт розумного дому"
-    mail(from: email, subject: 'Contact Form Message')
   end
 end

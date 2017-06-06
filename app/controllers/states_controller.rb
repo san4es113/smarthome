@@ -98,8 +98,7 @@ class StatesController < ApplicationController
               end
             end
         
-        Thread.kill(@thread)
-        Thread.kill(@thread1)
+      
       else
         format.html { render :edit }
         format.json { render json: @state.errors, status: :unprocessable_entity }

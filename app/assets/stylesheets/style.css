@@ -1,7 +1,7 @@
-.table li a{
-  display: block;
-  color:white;
+.table tr td{
 
+  color:white;
+font-size: 20px;
 }
 .c{
 	margin-left:20px;
@@ -9,8 +9,8 @@
 }
 .table{
 	color:white;
-	text-shadow: 2px 2px #ff0000;
-  font-size: 20px;
+	text-shadow: 2px 2px blue;
+  
 }
 #list li{
 	margin: 5px;

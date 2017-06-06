@@ -38,6 +38,7 @@ class StatesController < ApplicationController
                   @st.save
           end
         end
+      end
 
 
       

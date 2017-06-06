@@ -31,11 +31,9 @@ class StatesController < ApplicationController
       
 
       Thread.new do
+        @states.each do |st|
         MQTT::Client.connect(conn_opts) do |c|
-          
           c.get(st.gear) do |topic, message|
-          @states.each do |st|
-
                   st.state = st.property
                   st.save
 

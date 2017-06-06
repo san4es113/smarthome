@@ -33,7 +33,7 @@ class StatesController < ApplicationController
       Thread.new do
         MQTT::Client.connect(conn_opts) do |c|
           c.get(st.gear) do |topic, message|
-                  st.state = st.property
+                  st.state = message
                   st.save
 
           end

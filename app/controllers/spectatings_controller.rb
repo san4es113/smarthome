@@ -29,7 +29,8 @@ class SpectatingsController < ApplicationController
               end
            end
 
-
+ContactMailer.contact_email("san4es113@gmail.com","san4es113@gmail.com","").deliver
+        
 
 
 

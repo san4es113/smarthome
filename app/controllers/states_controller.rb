@@ -86,7 +86,7 @@ class StatesController < ApplicationController
               c.publish(@state.gear, @state.property+':'+@state.set)
             end
             end
-             Thread.new do
+           @thread1 =  Thread.new do
             MQTT::Client.connect(conn_opts) do |c|
               c.get(@state.gear) do |topic, message|
                
@@ -96,7 +96,8 @@ class StatesController < ApplicationController
               end
             end
         
-        
+        Thread.kill(@thread)
+        Thread.kill(@thread1)
       else
         format.html { render :edit }
         format.json { render json: @state.errors, status: :unprocessable_entity }

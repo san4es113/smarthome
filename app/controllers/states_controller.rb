@@ -28,18 +28,18 @@ class StatesController < ApplicationController
       }
 
 
-      
-
-      Thread.new do
-        MQTT::Client.connect(conn_opts) do |c|
-          c.get(st.gear) do |topic, message|
-            
-                  @st.state = message.split(':')[0]
-                  @st.save
+      @states = State.all
+    @state.each do |st|
+          Thread.new do
+            MQTT::Client.connect(conn_opts) do |c|
+              c.get(st.gear) do |topic, message|
+                
+                      @st.state = message.split(':')[0]
+                      @st.save
+              end
+            end
           end
-        end
-      end
-
+    end
   end  
  
 

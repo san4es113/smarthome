@@ -26,7 +26,7 @@ class StatesController < ApplicationController
         username: uri.user,
         password: uri.password,
       }
-
+@states = State.all
 
       @states.each do |st|
       Thread.new do
@@ -42,7 +42,7 @@ class StatesController < ApplicationController
         end
       end
 
-      @states = State.all
+      
          @states.each do |elt|
         Thread.new do
           MQTT::Client.connect(conn_opts) do |c|

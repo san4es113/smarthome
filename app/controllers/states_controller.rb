@@ -36,7 +36,7 @@ class StatesController < ApplicationController
           c.get(st.gear) do |topic, message|
           @states.each do |st|
 
-                  st.state = st.property+message.split(':')[0]
+                  st.state = st.property
                   st.save
 
           end

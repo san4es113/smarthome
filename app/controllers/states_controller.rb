@@ -87,7 +87,7 @@ class StatesController < ApplicationController
           Thread.new do
             MQTT::Client.connect(conn_opts) do |c|
               c.get(@state.gear) do |topic, message|
-                if @state.property.eql? message.to_s.split(':')[0]
+                if @state.property.to_s.eql? message.to_s.split(':')[0]
                       @state.state = "1"
                       @state.save
                   end    

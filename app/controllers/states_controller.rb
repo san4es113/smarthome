@@ -34,7 +34,7 @@ class StatesController < ApplicationController
         MQTT::Client.connect(conn_opts) do |c|
           c.get(st.gear) do |topic, message|
             
-                  @st.state = message.split(':')[1]
+                  @st.state = message.split(':')[0]
                   @st.save
           end
         end
@@ -83,7 +83,7 @@ class StatesController < ApplicationController
         password: uri.password,
       }
 
-    
+
     respond_to do |format|
       if @state.update(state_params)
         format.html { redirect_to @state, notice: 'State was successfully updated.' }

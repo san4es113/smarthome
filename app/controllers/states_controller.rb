@@ -90,7 +90,7 @@ class StatesController < ApplicationController
             MQTT::Client.connect(conn_opts) do |c|
               c.get(@state.gear) do |topic, message|
                 if @state.property==@current_state
-                      @state.state = message
+                      @state.state = message.to_s
                       @state.save
                   end    
               end

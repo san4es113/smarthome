@@ -85,6 +85,7 @@ class StatesController < ApplicationController
             # publish a message to the topic 'test'
               c.publish(@state.gear, @state.property+':'+@state.set)
             end
+            end
              Thread.new do
             MQTT::Client.connect(conn_opts) do |c|
               c.get(@state.gear) do |topic, message|
@@ -94,7 +95,7 @@ class StatesController < ApplicationController
                end       
               end
             end
-        end
+        
         
       else
         format.html { render :edit }

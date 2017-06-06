@@ -28,18 +28,7 @@ class StatesController < ApplicationController
       }
 
 
-      @states = State.all
-    @states.each do |st|
-          Thread.new do
-            MQTT::Client.connect(conn_opts) do |c|
-              c.get(st.gear) do |topic, message|
-                
-                      @st.state = message
-                      @st.save
-              end
-            end
-          end
-    end
+    
   end  
  
 
@@ -95,6 +84,15 @@ class StatesController < ApplicationController
               c.publish(@state.gear, @state.property+':'+@state.set)
             end
           end
+          Thread.new do
+            MQTT::Client.connect(conn_opts) do |c|
+              c.get(@state.gear) do |topic, message|
+                
+                      @state.state = message
+                      @state.save
+              end
+            end
+        end
       else
         format.html { render :edit }
         format.json { render json: @state.errors, status: :unprocessable_entity }

@@ -85,6 +85,7 @@ class StatesController < ApplicationController
             # publish a message to the topic 'test'
               c.publish(@state.gear, @state.property+':'+@state.set)
               @state.state = @state.set
+              @state.save
             end
             end
            @thread1 =  Thread.new do

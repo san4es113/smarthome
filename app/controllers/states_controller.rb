@@ -78,9 +78,10 @@ class StatesController < ApplicationController
         format.html { redirect_to @state, notice: 'State was successfully updated.' }
         format.json { render :show, status: :ok, location: @state }
 
-        @current_state=@state.property
+        
 
          @thread = Thread.new do
+          @current_state=@state.property
           MQTT::Client.connect(conn_opts) do |c|
             # publish a message to the topic 'test'
               c.publish(@state.gear, @state.property+':'+@state.set)
@@ -88,7 +89,7 @@ class StatesController < ApplicationController
              
             MQTT::Client.connect(conn_opts) do |c|
               c.get(@state.gear) do |topic, message|
-                if @state.property==message.to_s.split(':')[0].to_s
+                if @state.property==@current_state
                       @state.state = message.to_s.split(':')[1]
                       @state.save
                   end    

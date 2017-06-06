@@ -38,7 +38,7 @@ class StatesController < ApplicationController
                   @st.save
           end
         end
-      end
+
 
       
          @state=State.last
@@ -48,7 +48,7 @@ class StatesController < ApplicationController
               c.publish(@state.gear, @state.property+':'+@state.set)
             end
           end
-        end
+
 
 
 

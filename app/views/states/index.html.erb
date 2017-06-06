@@ -20,9 +20,9 @@
         <td><%= state.state %></td>
         <td><%= state.set %></td>
         <td><%= state.gear %></td>
-        <td><%= link_to 'Show', state %></td>
-        <td><%= link_to 'Edit', edit_state_path(state) %></td>
-        <td><%= link_to 'Destroy', state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', state ,:class => "btn btn-default"%></td>
+        <td><%= link_to 'Edit', edit_state_path(state) , :class => "btn btn-default"%></td>
+        <td><%= link_to 'Destroy', state, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default" %></td>
       </tr>
     <% end %>
   </tbody>

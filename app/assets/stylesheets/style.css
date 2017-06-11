@@ -76,6 +76,17 @@ background-color: #333333;
 background-color: #333333 ;
 color:white;
 }
+
+#page1{
+background-color: lightblue ;
+color:black;
+}
+#page-content-wrapper1{
+	text-align: center;
+background-color: lightblue;
+	height: 200%;
+	color:white;
+}
 .table{
 	width: 20%;
 	margin-left: 5%;

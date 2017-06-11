@@ -2,6 +2,43 @@
 
 <h1>Listing Spectatings</h1>
 
+
+
+<% @int = Interface.last
+if @int.state==1 %>
+  <ul id="list">
+ 
+
+    <% @states.each do |state| %>
+      
+        <li >Latitude  <div class="c"><%= spectating.latitude %></div></li>
+        <li >Longitude  <div class="c"><%= spectating.longitude %></div></li>
+        <li >Address  <div class="c"><%= spectating.address %></div></li>
+        <li >Title  <div class="c"><%= spectating.title %></div ></li>
+        <li >Description  <div class="c"><%= spectating.description %></div ></li>
+        <li >Date  <div class="c"><%= spectating.date %></div ></li>
+        <li >Photo  <div class="c"><%= image_tag spectating.image.url(:thumb) %></div ></li>
+        <li >  Makes:  <br>
+        <%= link_to 'Show', spectating ,:class => "btn btn-info"%>
+        <%= link_to 'Edit', edit_spectating_path(spectating) ,:class => "btn btn-warning"%>
+        <%= link_to 'Delete', spectating, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%>
+        </li>
+      </ul>
+  <% end %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+<% if @int.state==0%>
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -33,7 +70,7 @@
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
 
 <%= link_to 'New Spectating', new_spectating_path %>

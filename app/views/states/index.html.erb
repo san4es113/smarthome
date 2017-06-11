@@ -2,6 +2,47 @@
 
 <h1>States and updates</h1>
 
+
+
+<% @int = Interface.last
+if @int.state==1 %>
+  <ul id="list">
+ 
+
+    <% @states.each do |state| %>
+      
+        <li >Property  <div class="c"><%= state.property %></div></li>
+        <li >Current state  <div class="c"><%= state.state %></div ></li>
+        <li >Set parameter  <div class="c"><%= state.set %></div ></li>
+        <li >Device  <div class="c"><%= state.gear %></div ></li>
+        <li >  Makes:  <br>
+        <%= link_to 'Show', state ,:class => "btn btn-info"%>
+        <%= link_to 'Edit', edit_state_path(state) ,:class => "btn btn-warning"%>
+        <%= link_to 'Delete', state, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%>
+        </li>
+      </ul>
+  <% end %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @int.state==0%>
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -29,7 +70,7 @@
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
 
 <%= link_to 'New Property', new_state_path , :class => "btn btn-default"%>

@@ -2,8 +2,8 @@
 
 
 
-
-
+<% @int = Interface.last %>
+<% if @int.state==1%>
 
 <h1>Friends</h1>
 
@@ -28,9 +28,36 @@
   </ul>
  <% end %>
 
-
+ <% end %>
 <br>
 
         
 
+<% if @int.state==0%>
 
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Birthday</th>
+      <th>Email</th>
+      <th>Show</th>
+      <th>Set parameter</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @states.each do |state| %>
+      <tr>
+        <td><%= info.username %></td>
+        <td><%= info.birthday %></td>
+        <td><%= info.user.email %></td>
+        <td><%= link_to 'Show', info ,:class => "btn btn-default"%></td>
+        <td><%= link_to 'Set parameter', edit_usinfo_path(info) , :class => "btn btn-default"%></td>
+        <td><%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

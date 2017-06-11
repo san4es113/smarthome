@@ -49,7 +49,7 @@ if @int.state==0 %>
   
 
     <ul class="nav navbar-nav navbar-left">
-      <li> <%= image_tag("logo.png", size: "70x50")  %></li>
+      <li style="height: 70px;float: top;"> <%=link_to  image_tag("logo.png", size: "70x50"), interfaces_path , :class => "menufont"%></li>
     </ul>
 
     <% if user_signed_in? %>
@@ -58,7 +58,7 @@ if @int.state==0 %>
            <li><%=link_to "Friends" , usinfos_path , :class => "menufont"%></li>
            <li><%=link_to "Devises" , gears_path , :class => "menufont"%></li>
            <li><%=link_to "Spectating" , spectatings_path , :class => "menufont"%></li>
-           <li><%=link_to "Settings" , interfaces_path , :class => "menufont"%></li>
+          
       </ul>
 
        <ul class="nav navbar-nav navbar-right" >

@@ -6,11 +6,11 @@
 
 <% @int = Interface.last
 if @int.state==1 %>
-  <ul class="list">
+  
  
 
     <% @states.each do |state| %>
-      
+      <ul class="list">
         <li >Property  <div class="c"><%= state.property %></div></li>
         <li >Current state  <div class="c"><%= state.state %></div ></li>
         <li >Set parameter  <div class="c"><%= state.set %></div ></li>

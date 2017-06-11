@@ -5,7 +5,8 @@
 <div id="wrapper">
 
 
-
+<% @int = Interface.last
+if @int.state==1 %>
   <ul id="list">
  
 
@@ -23,10 +24,45 @@
         <%= link_to 'Device State', states_path(gear) ,:class => "btn btn-default"%>
         </li>
       </ul>
+  <% end %>
+<% end %>
+      <% if @int.state==0%>
+      <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Key</th>
+                <th>Owner</th>
+                <th>Address</th>
+                <th>Description</th>
+                <th>Makes</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @gears.each  do |gear| %>
+                <tr>
+                  <td><%= gear.title %></td>
+                  <td><%= gear.definitionkey %></td>
+                  <td><%= gear.usinfo.user.email %></td>
+                  <td><%= gear.address %></td>
+                  <td><%= gear.description %></td>
+                  <td><%= link_to 'Show', gear %></td>
+                  <td><%= link_to 'Edit', edit_gear_path(gear) %></td>
+                  <td><%= link_to 'Destroy', gear, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Device State', states_path(gear) ,:class => "btn btn-default"%></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
     <% end %>
 
 
 </div>
+
+
+
 <br>
 
 <%= link_to 'Connect new device', new_gear_path ,:class => "btn btn-success" %>

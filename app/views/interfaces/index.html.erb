@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Settings</h1>
+<div>
+  <h1>1)0 - table</h1>
+  <h1>1)1 - list</h1>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Modify</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interfaces.each do |interface| %>
+      <tr>
+        <td><%= interface.state %></td>
+        <td><%= link_to 'Edit', edit_interface_path(interface) %></td>
+        <td><%= link_to 'Destroy', interface, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interface', new_interface_path %>

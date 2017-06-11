@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interfaces
   resources :spectatings
   resources :states
   devise_for :users

@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
          has_many :usinfos
          has_many :gears
          has_many :states
+         has_many :interfaces
 end

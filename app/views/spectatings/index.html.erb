@@ -8,9 +8,9 @@
 if @int.state==1 %>
   
  
-
+<ul id="list">
     <% @spectatings.each do |spectating| %>
-      <ul id="list">
+      
         <li >Latitude  <div class="c"><%= spectating.latitude %></div></li>
         <li >Longitude  <div class="c"><%= spectating.longitude %></div></li>
         <li >Address  <div class="c"><%= spectating.address %></div></li>
@@ -23,9 +23,9 @@ if @int.state==1 %>
         <%= link_to 'Edit', edit_spectating_path(spectating) ,:class => "btn btn-warning"%>
         <%= link_to 'Delete', spectating, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%>
         </li>
-      </ul>
+     
     <% end %>
-      
+     </ul>  
  
 <% end %>
 

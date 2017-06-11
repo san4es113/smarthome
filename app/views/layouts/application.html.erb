@@ -57,7 +57,7 @@ if @int.state==0 %>
            <li><%=link_to "My Profile" , profile_path , :class => "menufont"%></li>
            <li><%=link_to "Friends" , usinfos_path , :class => "menufont"%></li>
            <li><%=link_to "Devises" , gears_path , :class => "menufont"%></li>
-           <li><%=link_to "Spectatings" , spectatings_path , :class => "menufont"%></li>
+           <li><%=link_to "Spectating" , spectatings_path , :class => "menufont"%></li>
            <li><%=link_to "Settings" , interfaces_path , :class => "menufont"%></li>
       </ul>
 
@@ -113,6 +113,7 @@ if @int.state==0 %>
 
 <% if @int.state==1 %>
 
+<%= image_tag("logo.png", size: "70x50")  %>
   <body>
 
     <div id="page-content-wrapper1">
@@ -144,37 +145,7 @@ if @int.state==0 %>
 
 
   </body>
-  <body>
-
-    <div id="page-content-wrapper">
-          <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <% if user_signed_in? || request.url=="https://mysmarthomeapp.herokuapp.com/users/sign_in" || request.url=="https://mysmarthomeapp.herokuapp.com/users/sign_up"|| request.url=="http://localhost:3000/users/sign_up"|| request.url=="http://localhost:3000/users/sign_in"%>
-                        <div class="page" >
-                           <%= yield %>
-                        </div>
-                    <% else %>
-                        <div class="page">
-                            <h2>Welcome , to smarthome network</h2>
-                            <h3>Please , login or sign up :)</h3>
-                         </div>
-                    <% end %>
-
-                 </div>
-  
-             </div>
-
-            </div>  
-
-        
-    </div>
-
-
-
-
-
-  </body>
+ 
 
 
 

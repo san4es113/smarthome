@@ -6,26 +6,24 @@
 
 <% @int = Interface.last
 if @int.state==1 %>
-  
- 
-<ul class="list">
-    <% @spectatings.each do |spectating| %>
+   
+   <% @spectatings.each do |spectating| %>
+   <ul id="list">
+      <li>Latitude <div class="c"><%= spectating.latitude %></div></li>
       
-        <li >Latitude  <div class="c"><%= spectating.latitude %></div></li>
-        <li >Longitude  <div class="c"><%= spectating.longitude %></div></li>
-        <li >Address  <div class="c"><%= spectating.address %></div></li>
-        <li >Title  <div class="c"><%= spectating.title %></div ></li>
-        <li >Description  <div class="c"><%= spectating.description %></div ></li>
-        <li >Date  <div class="c"><%= spectating.date %></div ></li>
-        <li >Photo  <div class="c"><%= image_tag spectating.image.url(:thumb) %></div ></li>
-        <li >  Makes:  <br>
-        <%= link_to 'Show', spectating ,:class => "btn btn-info"%>
-        <%= link_to 'Edit', edit_spectating_path(spectating) ,:class => "btn btn-warning"%>
-        <%= link_to 'Delete', spectating, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%>
-        </li>
+      <li >
+      Actions: <br> <%= link_to 'Show', spectating ,:class => "btn btn-success" %>
+        <%= link_to 'Edit', edit_spectating_path(spectating),:class => "btn btn-warning" %>
+       <%= link_to 'Delete', spectating, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%>
+          
+ 
+       </li>
      
-    <% end %>
-     </ul>  
+      
+  </ul>
+ <% end %>
+ 
+
  
 <% end %>
 

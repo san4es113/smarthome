@@ -49,10 +49,10 @@ if @int.state==1 %>
                   <td><%= gear.usinfo.user.email %></td>
                   <td><%= gear.address %></td>
                   <td><%= gear.description %></td>
-                  <td><%= link_to 'Show', gear %></td>
-                  <td><%= link_to 'Edit', edit_gear_path(gear) %></td>
-                  <td><%= link_to 'Destroy', gear, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  <td><%= link_to 'Device State', states_path(gear) ,:class => "btn btn-default"%></td>
+                  <td><%= link_to 'Show', gear ,:class => "btn btn-info"%></td>
+                  <td><%= link_to 'Edit', edit_gear_path(gear) ,:class => "btn btn-warning"%></td>
+                  <td><%= link_to 'Destroy', gear, method: :delete, data: { confirm: 'Are you sure?' } ,:class => "btn btn-danger"%></td>
+                  <td><%= link_to 'Device State', states_path(gear) ,:class => "btn btn-success"%></td>
                 </tr>
               <% end %>
             </tbody>

@@ -53,9 +53,9 @@
         <td><%= info.username %></td>
         <td><%= info.birthday %></td>
         <td><%= info.user.email %></td>
-        <td><%= link_to 'Show', info ,:class => "btn btn-default"%></td>
-        <td><%= link_to 'Set parameter', edit_usinfo_path(info) , :class => "btn btn-default"%></td>
-        <td><%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default" %></td>
+        <td><%= link_to 'Show', info ,:class => "btn btn-info"%></td>
+        <td><%= link_to 'Set parameter', edit_usinfo_path(info) , :class => "btn btn-warning"%></td>
+        <td><%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -22,6 +22,7 @@ if @int.state==1 %>
         </li>
       </ul>
   <% end %>
+  <%= link_to 'New Property', new_state_path , :class => "btn btn-default"%>
 <% end %>
 
 
@@ -63,16 +64,17 @@ if @int.state==1 %>
         <td><%= state.state %></td>
         <td><%= state.set %></td>
         <td><%= state.gear %></td>
-        <td><%= link_to 'Show', state ,:class => "btn btn-default"%></td>
-        <td><%= link_to 'Set parameter', edit_state_path(state) , :class => "btn btn-default"%></td>
-        <td><%= link_to 'Destroy', state, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default" %></td>
+        <td><%= link_to 'Show', state ,:class => "btn btn-info"%></td>
+        <td><%= link_to 'Set parameter', edit_state_path(state) , :class => "btn btn-warning"%></td>
+        <td><%= link_to 'Destroy', state, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to 'New Property', new_state_path , :class => "btn btn-success"%>
 <% end %>
 <br>
 
-<%= link_to 'New Property', new_state_path , :class => "btn btn-default"%>
+
 
 

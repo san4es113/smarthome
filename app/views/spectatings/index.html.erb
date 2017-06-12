@@ -17,7 +17,7 @@ if @int.state==1 %>
         <li >Title  <div class="c"><%= spectating.title %></div ></li>
         <li >Description  <div class="c"><%= spectating.description %></div ></li>
         <li >Date  <div class="c"><%= spectating.date %></div ></li>
-        <li >Photo  <div class="c"><div style="background:url('1.png');background-size: contain; height: 150px;width: 150px;"><div></div ></li>
+        <li >Photo  <div class="c"><div style="background:url('/assets/1.png');background-size: contain; height: 150px;width: 150px;"><div></div ></li>
         <li >  Makes:  <br>
         <%= link_to 'Show', spectating ,:class => "btn btn-info"%>
         <%= link_to 'Edit', edit_spectating_path(spectating) ,:class => "btn btn-warning"%>
@@ -64,7 +64,7 @@ if @int.state==1 %>
             <td><%= spectating.title %></td>
             <td><%= spectating.description %></td>
             <td><%= spectating.date %></td>
-             <td><div style="background:url('/assets/1.png');background-size: contain; height: 150px;width: 150px;"><div></td>
+             <td><div style="background:url('1.png');background-size: contain; height: 150px;width: 150px;"><div></td>
             <td><%= link_to 'Show', spectating ,:class => "btn btn-info"%></td>
             <td><%= link_to 'Edit', edit_spectating_path(spectating) ,:class => "btn btn-warning"%></td>
             <td><%= link_to 'Destroy', spectating, method: :delete, data: { confirm: 'Are you sure?' } , :class => "btn btn-danger"%></td>

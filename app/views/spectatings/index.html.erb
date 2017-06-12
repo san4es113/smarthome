@@ -17,7 +17,7 @@ if @int.state==1 %>
         <li >Title  <div class="c"><%= spectating.title %></div ></li>
         <li >Description  <div class="c"><%= spectating.description %></div ></li>
         <li >Date  <div class="c"><%= spectating.date %></div ></li>
-        <li >Photo  <div class="c"><%= image_tag spectating.image.url(:thumb) %></div ></li>
+        <li >Photo  <div class="c"><div style="background:url('/assets/1.png');background-size: contain; height: 150px;width: 150px;"><div></div ></li>
         <li >  Makes:  <br>
         <%= link_to 'Show', spectating ,:class => "btn btn-info"%>
         <%= link_to 'Edit', edit_spectating_path(spectating) ,:class => "btn btn-warning"%>

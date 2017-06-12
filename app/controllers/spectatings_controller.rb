@@ -29,7 +29,7 @@ class SpectatingsController < ApplicationController
               end
            end
 
-CommentMeiler.update_info("san4es113@gmail.com","san4es113@gmail.com","").deliver
+#ommentMeiler.update_info("san4es113@gmail.com","san4es113@gmail.com","").deliver
         
 
 
